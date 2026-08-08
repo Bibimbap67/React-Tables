@@ -13,8 +13,32 @@ import haewon from "../assets/haewon.png";
 import chaeryoung from "../assets/chaeryeong.png";
 import miyeon from "../assets/miyeon.png";
 
+/* ============================================================
+   CARD BACKGROUNDS — import custom images from src/assets here
+   1. Add your image file to src/assets (e.g. haerin_bg.png)
+   2. Import it below
+   3. Set cardBackground on the matching group in theirGroups
+   If cardBackground is null, the first member photo is used instead.
+   ============================================================ */
+import ianBg from '../assets/ian_bg.png';
+import haerinBg from '../assets/haerin_bg.png';
+import sakuraBg from '../assets/sakura_bg.png';
+// import kazuhaBg from '../assets/kazuha_bg.png';
+// import karinaBg from '../assets/karina_bg.png';
+import winterBg from '../assets/winter_bg.png';
+import miyeonBg from '../assets/miyeon_bg.png';
+import chaeryeongBg from '../assets/chaeryeong_bg.png';
+import haewonBg from '../assets/haewon_bg.png';
+import julieBg from '../assets/julie_bg.png';
+import lizBg from '../assets/liz_bg.png';
+import minaBg from '../assets/mina_bg.png';
+// import chaeyoungBg from '../assets/chaeyoung_bg.png';
+
+const getGroupCardBackground = (group) =>
+  group.cardBackground ?? group.member[0]?.image;
+
 const myBias = [
-  {id: '1', stageName: "Ian (이안)", name: "Jeong Lee-an", age: 17, position: "Dancer, Vocalist, Visual, Center", image: ian},
+  {id: '1', stageName: "Ian (이안)", name: "Jeong Lee-an", age: 17, position: "Dancer, Vocalist, Visual, Center", image: ian, },
 
   {id: '2', stageName: "Miyeon (미연)", name: "Cho Mi-yeon", age: 29, position: "Main Vocalist", image: miyeon},
 
@@ -53,7 +77,8 @@ const theirGroups = [
     id: 1,
     groupName:"Hearts2Hearts",
     fandomName:"S2U (하츄)",
-    color: "#62c1e5",
+    color: "#495865",
+    cardBackground: ianBg,
     aboutThisGroup:"Hearts2Hearts (하츠투하츠), also shortened as H2H, is an 8-member South Korean girl group under SM Entertainment. The members are: Jiwoo, Carmen, Yuha, Stella, Juun, A-na, Ian, and Ye-on. They debuted on February 24, 2025, with their first single album, The Chase.",
     member: [myBias[0]]
   },
@@ -62,7 +87,8 @@ const theirGroups = [
     id: 2,
     groupName:"NewJeans",
     fandomName: "Bunnies",
-    color: "#0431c3",
+    color: "#1A1E3C",
+    cardBackground: haerinBg, // haerinBg
     aboutThisGroup: "NewJeans (NJZ) is a K-pop girl group under ADOR and HYBE Labels. Debuting in 2022, they rose to fame with hits like Attention. Originally a five-member group, they became a four-member group in December 2025 following Danielle's contract termination.",
     member: [myBias[4]]
   },
@@ -71,7 +97,8 @@ const theirGroups = [
     id: 3,
     groupName:"LE SSERAFIM",
     fandomName: "FEARNOT",
-    color: "#A6BAD0",
+    color: "#374149",
+    cardBackground: sakuraBg, // sakuraBg or kazuhaBg
     aboutThisGroup: "LE SSERAFIM (르세라핌) is a 5-member K-pop girl group under HYBE and Source Music, consisting of Chaewon, Sakura, Yunjin, Kazuha, and Eunchae. They debuted in 2022 with FEARLESS. Originally a 6-member group, Kim Garam left in July 2022, leaving the group with its current five members.",
     member: [myBias[11], myBias[12]]
   },
@@ -80,7 +107,8 @@ const theirGroups = [
     id: 4,
     groupName:"Aespa",
     fandomName: "MY's",
-    color: "#000000",
+    color: "#394207",
+    cardBackground: winterBg, // karinaBg or winterBg
     aboutThisGroup: "aespa (에스파) is a 4-member K-pop girl group under SM Entertainment, consisting of Karina, Giselle, Winter, and NingNing. They debuted in 2020 with Black Mamba and made their Japanese debut with Hot Mess in 2024. Known for their futuristic concepts and powerful performances, aespa also signed with Warner Records for global promotions.",
     member: [myBias[5], myBias[6]]
   },
@@ -89,7 +117,8 @@ const theirGroups = [
     id: 5,
     groupName:"i-dle",
     fandomName:"NEVERLAND",
-    color: "#580E8B",
+    color: "#6A4954",
+    cardBackground: miyeonBg, // miyeonBg
     aboutThisGroup:"i-dle (아이들), formerly known as (G)I-DLE, is a 5-member K-pop girl group under CUBE Entertainment: Soyeon, Miyeon, Minnie, Yuqi, and Shuhua. They debuted in 2018 with I Am. After Soojin left in 2021, the group continued as five members. In 2025, they rebranded from (G)I-DLE to i-dle to mark their 7th anniversary.",
     member: [myBias[1]]
   },
@@ -99,7 +128,8 @@ const theirGroups = [
     id: 6,
     groupName:"ITZY",
     fandomName: "Midzy",
-    color: "#FD3DB5",
+    color: "#1C1B19",
+    cardBackground: chaeryeongBg, // chaeryeongBg
     aboutThisGroup: "ITZY (있지) is a 5-member South Korean girl group under JYP Entertainment, consisting of Yeji, Lia, Ryujin, Chaeryeong, and Yuna. They debuted on February 11, 2019, with their first single album, IT’z Different.",
     member: [myBias[2]]
   },
@@ -108,7 +138,8 @@ const theirGroups = [
     id: 7,
     groupName:"NMIXX",
     fandomName: "NSWER",
-    color: "#B2BDD9",
+    color: "#051721",
+    cardBackground: haewonBg, // haewonBg
     aboutThisGroup: "NMIXX (엔믹스) (formerly known as JYPn) is a 6-member South Korean girl group under JYP Entertainment, consisting of Haewon, Lily, Sullyoon, Bae, Jiwoo, and Kyujin. Jinni left the group on December 9, 2022. They debuted on February 22, 2022, with their first single album, AD MARE. They’ll make their Japanese debut on December 9, 2026, with the album, N＝MIXX.",
     member: [myBias[3]]
   },
@@ -119,7 +150,8 @@ const theirGroups = [
     id: 8,
     groupName:"Kiss of life",
     fandomName: "KISSY",
-    color: "#F3BC83",
+    color: "#5B3337",
+    cardBackground: julieBg, // julieBg
     aboutThisGroup: "KISS OF LIFE (키스 오브 라이프), or KIOF, is a 4-member K-pop girl group under S2 Entertainment: Julie, Natty, Belle, and Haneul. They debuted in 2023 with their first mini album, KISS OF LIFE, and made their Japanese debut in 2025 with TOKYO MISSION START. Known for their bold concepts, strong vocals, and confident performances.",
     member: [myBias[7]]
   },
@@ -128,7 +160,8 @@ const theirGroups = [
     id: 9,
     groupName:"IVE",
     fandomName: "DIVE",
-    color: "#F40094",
+    color: "#141E34",
+    cardBackground: lizBg, // lizBg
     aboutThisGroup: "IVE (아이브) is a 6-member K-pop girl group under STARSHIP Entertainment, consisting of Yujin, Gaeul, Rei, Wonyoung, Liz, and Leeseo. They debuted in 2021 with ELEVEN and later expanded globally with their Japanese debut in 2022 and English debut in 2024. Known for their confident concepts and catchy pop hits.",
     member: [myBias[8]]
   },
@@ -137,13 +170,14 @@ const theirGroups = [
     id: 10,
     groupName:"TWICE",
     fandomName: "ONCE",
-    color: "#7DA5D5",
+    color: "#6D5455",
+    cardBackground: minaBg, // minaBg or chaeyoungBg
     aboutThisGroup: "TWICE (트와이스) is a 9-member K-pop girl group under JYP Entertainment, consisting of Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeryeong, and Tzuyu. They debuted in 2015 with their first single album, The Story of Ours. Known for their catchy pop hits and synchronized choreography.",
     member: [myBias[9], myBias[10]]
   },
 
 ];
 
-const MemberData = { myBias, columns, theirGroups};
+const MemberData = { myBias, columns, theirGroups, getGroupCardBackground };
 
 export default MemberData;

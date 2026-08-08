@@ -17,9 +17,10 @@ function App() {
             title={<span className="group-title">{group.groupName}</span>}
             extra={<Tag color={group.color} className="group-tag"><span className="group-tag-text">{group.fandomName}</span></Tag>}
             className="group-card"
+            style={{ '--card-bg': `url(${MemberData.getGroupCardBackground(group)})` }}
           >
 
-            <p> <span className="about-label">About:</span> {group.aboutThisGroup} </p>
+            <p> <span style={{color: 'white'}}>{group.aboutThisGroup}</span> </p>
             <p className="favorite-label"> Favorite Member: </p>
  
             <Table
