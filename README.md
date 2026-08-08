@@ -1,10 +1,7 @@
 # My Bias Archive
 
 A simple React page that lists my favorite K-pop groups and members.
-
-<video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" width="100%">
-  <source src="./assets/scroll.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/861eaeb1-0499-471d-8e70-f24383455940
 
 ## About
 
@@ -12,9 +9,7 @@ Each group is shown in a card with a blurred background image, a short descripti
 
 Hover a member photo to dim the page. The photo and tags stay on top.
 
-<video autoplay loop muted playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" width="100%">
-  <source src="./assets/hover.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/82753cfc-90ab-4330-9032-ec6d41eba788
 
 ## Stack
 
