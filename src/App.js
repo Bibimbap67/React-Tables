@@ -1,6 +1,7 @@
 import './App.css';
 import { Card, Table, Tag } from 'antd';
 import MemberData from './components/MemberData.js';
+import { Analytics } from '@vercel/analytics'
 
 function App() {  
 
@@ -32,6 +33,7 @@ function App() {
             />
           </Card>
         ))}
+        <Analytics/>
       </div>
     </div>
   );
