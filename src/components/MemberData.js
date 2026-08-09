@@ -63,7 +63,7 @@ const myBias = [
 ];
 
 const columns = [
-  { title: 'Photo', dataIndex: 'image', key: 'image', width: 90, render: (src) => (<img src={src} className="member-photo" />), },
+  { title: 'Photo', dataIndex: 'image', key: 'image', width: 90, render: (src, record) => (<img src={src} alt={record.stageName} className="member-photo" />), },
   { title: 'Stage Name', dataIndex: 'stageName', key: 'stageName', render: (x) => <Tag className="member-tag">{x}</Tag> },
   { title: 'Birth Name', dataIndex: 'name', key: 'name', render: (x) => <Tag className="member-tag">{x}</Tag> },
   { title: 'Age', dataIndex: 'age', key: 'age', render: (x) => <Tag className="member-tag">{x}</Tag> },
