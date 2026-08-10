@@ -1,4 +1,5 @@
 import { Tag } from 'antd';
+import MemberPhotoCell from './MemberPhotoCell.js';
 import ian from '../assets/ian.png';
 import haerin from '../assets/haerin.png';
 import sakura from "../assets/sakura.png";
@@ -13,18 +14,9 @@ import haewon from "../assets/haewon.png";
 import chaeryoung from "../assets/chaeryeong.png";
 import miyeon from "../assets/miyeon.png";
 
-/* ============================================================
-   CARD BACKGROUNDS — import custom images from src/assets here
-   1. Add your image file to src/assets (e.g. haerin_bg.png)
-   2. Import it below
-   3. Set cardBackground on the matching group in theirGroups
-   If cardBackground is null, the first member photo is used instead.
-   ============================================================ */
 import ianBg from '../assets/ian_bg.png';
 import haerinBg from '../assets/haerin_bg.png';
 import sakuraBg from '../assets/sakura_bg.png';
-// import kazuhaBg from '../assets/kazuha_bg.png';
-// import karinaBg from '../assets/karina_bg.png';
 import winterBg from '../assets/winter_bg.png';
 import miyeonBg from '../assets/miyeon_bg.png';
 import chaeryeongBg from '../assets/chaeryeong_bg.png';
@@ -32,44 +24,64 @@ import haewonBg from '../assets/haewon_bg.png';
 import julieBg from '../assets/julie_bg.png';
 import lizBg from '../assets/liz_bg.png';
 import minaBg from '../assets/mina_bg.png';
-// import chaeyoungBg from '../assets/chaeyoung_bg.png';
+
+import ianVideo from '../assets/ian_video.mp4';
+import haerinVideo from '../assets/haerin_video.mp4';
+import sakuraVideo from '../assets/sakura_video.mp4';
+import kazuhaVideo from '../assets/kazuha_video.mp4';
+import winterVideo from '../assets/winter_video.mp4';
+import karinaVideo from '../assets/karina_video.mp4';
+import lizVideo from '../assets/liz_video.mp4';
+import miyeonVideo from '../assets/miyeon_video.mp4';
+import haewonVideo from '../assets/haewon_video.mp4';
+import minaVideo from '../assets/mina_video.mp4';
+import chaeyoungVideo from '../assets/chaeyoung_video.mp4';
+import chaeryeongVideo from '../assets/chaeryeong_video.mp4';
+import julieVideo from '../assets/julie_video.mp4';
 
 const getGroupCardBackground = (group) =>
   group.cardBackground ?? group.member[0]?.image;
 
 const myBias = [
-  {id: '1', stageName: "Ian (이안)", name: "Jeong Lee-an", age: 17, position: "Dancer, Vocalist, Visual, Center", image: ian, },
+  {id: '1', stageName: "Ian (이안)", name: "Jeong Lee-an", age: 17, position: "Dancer, Vocalist, Visual, Center", image: ian, video: ianVideo},
 
-  {id: '2', stageName: "Miyeon (미연)", name: "Cho Mi-yeon", age: 29, position: "Main Vocalist", image: miyeon},
+  {id: '2', stageName: "Miyeon (미연)", name: "Cho Mi-yeon", age: 29, position: "Main Vocalist", image: miyeon, video: miyeonVideo},
 
-  {id: '3', stageName: "Chaeryeong (채령)", name: "Lee Chae-ryeong", age: 25, position: "Main Dancer, Sub-Vocalist, Sub-Rapper", image: chaeryoung},
+  {id: '3', stageName: "Chaeryeong (채령)", name: "Lee Chae-ryeong", age: 25, position: "Main Dancer, Sub-Vocalist, Sub-Rapper", image: chaeryoung, video: chaeryeongVideo},
 
-  {id: '4', stageName: "Haewon (해원)", name: "Oh Hae-won", age: 23, position: "Leader, Main Vocalist", image: haewon},
+  {id: '4', stageName: "Haewon (해원)", name: "Oh Hae-won", age: 23, position: "Leader, Main Vocalist", image: haewon, video: haewonVideo},
 
-  {id: '5', stageName: "Haerin (해린)", name: "Kang Haerin", age: 20, position: "N/A", image: haerin},
+  {id: '5', stageName: "Haerin (해린)", name: "Kang Haerin", age: 20, position: "N/A", image: haerin, video: haerinVideo},
 
-  {id: '6', stageName: "Winter (윈터)", name: "Kim Min-jeong", age: 25, position: "Main Vocalist, Lead Dancer, Visual", image: winter},
-  {id: '7', stageName: "Karina (카리나)", name: "Yu Ji-min", age: 26, position: "Leader, Main Dancer, Lead Rapper", image: karina},
+  {id: '6', stageName: "Winter (윈터)", name: "Kim Min-jeong", age: 25, position: "Main Vocalist, Lead Dancer, Visual", image: winter, video: winterVideo},
+  {id: '7', stageName: "Karina (카리나)", name: "Yu Ji-min", age: 26, position: "Leader, Main Dancer, Lead Rapper", image: karina, video: karinaVideo},
 
-  {id: '8', stageName: "Julie (쥴리)", name: "Julie Han", age: 26, position: "Leader, Main Rapper, Lead Dancer", image: julie},
+  {id: '8', stageName: "Julie (쥴리)", name: "Julie Han", age: 26, position: "Leader, Main Rapper, Lead Dancer", image: julie, video: julieVideo},
 
-  {id: '9', stageName: "Liz (리즈)", name: "Kim Ji-won", age: 22, position: "Main Vocalist", image: liz},
+  {id: '9', stageName: "Liz (리즈)", name: "Kim Ji-won", age: 22, position: "Main Vocalist", image: liz, video: lizVideo},
 
-  {id: '10', stageName: "Mina (미나)", name: "Myoui Mina", age: 29, position: "Main Dancer, Sub-Vocalist", image: mina},
-  {id: '11', stageName: "Chaeyoung (채영)", name: "Son Chae-young", age: 27, position: "Main Dancer, Sub-Vocalist", image: chaeyoung},
-  
-  {id: '12', stageName: "Sakura (사쿠ラ)", name: "Miyawaki Sakura", age: 28, position: "Vocalist, Rapper, Dancer", image: sakura},
-  {id: '13', stageName: "Kazuha (카즈하)", name: "Nakamura Kazuha", age: 23, position: "Sub-Vocalist, Rapper, Dancer", image: kazuha},
+  {id: '10', stageName: "Mina (미나)", name: "Myoui Mina", age: 29, position: "Main Dancer, Sub-Vocalist", image: mina, video: minaVideo},
+  {id: '11', stageName: "Chaeyoung (채영)", name: "Son Chae-young", age: 27, position: "Main Dancer, Sub-Vocalist", image: chaeyoung, video: chaeyoungVideo},
+
+  {id: '12', stageName: "Sakura (사쿠ラ)", name: "Miyawaki Sakura", age: 28, position: "Vocalist, Rapper, Dancer", image: sakura, video: sakuraVideo},
+  {id: '13', stageName: "Kazuha (카즈하)", name: "Nakamura Kazuha", age: 23, position: "Sub-Vocalist, Rapper, Dancer", image: kazuha, video: kazuhaVideo},
 ];
 
 const columns = [
-  { title: 'Photo', dataIndex: 'image', key: 'image', width: 90, render: (src, record) => (<img src={src} alt={record.stageName} className="member-photo" />), },
+  {
+    title: 'Photo',
+    dataIndex: 'image',
+    key: 'image',
+    width: 90,
+    render: (src, record) => (
+      <MemberPhotoCell src={src} video={record.video} alt={record.stageName} />
+    ),
+  },
   { title: 'Stage Name', dataIndex: 'stageName', key: 'stageName', render: (x) => <Tag className="member-tag">{x}</Tag> },
   { title: 'Birth Name', dataIndex: 'name', key: 'name', render: (x) => <Tag className="member-tag">{x}</Tag> },
   { title: 'Age', dataIndex: 'age', key: 'age', render: (x) => <Tag className="member-tag">{x}</Tag> },
   { title: 'Position', dataIndex: 'position', key: 'position', render: (x) => <Tag className="member-tag">{x}</Tag> },
 ];
-
 
 const theirGroups = [
 

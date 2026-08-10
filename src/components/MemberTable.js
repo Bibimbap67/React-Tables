@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Table, Tag } from 'antd';
+import MemberPhotoCell from './MemberPhotoCell.js';
 
 function MemberTable({ members }) {
   const [hoveredId, setHoveredId] = useState(null);
@@ -11,10 +12,10 @@ function MemberTable({ members }) {
       key: 'image',
       width: 90,
       render: (src, record) => (
-        <img
+        <MemberPhotoCell
           src={src}
+          video={record.video}
           alt={record.stageName}
-          className="member-photo"
           onMouseEnter={() => setHoveredId(record.id)}
         />
       ),
